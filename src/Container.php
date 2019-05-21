@@ -9,11 +9,11 @@ namespace Core\Container;
 
 use Closure;
 use Psr\Container\ContainerInterface;
-use Core\Container\Definitions\ClassDefinition;
+use Core\Container\Contracts\ClassDefinition;
 use Core\Container\Exceptions\NotFoundException;
-use Core\Container\Definitions\SetterDefinition;
-use Core\Container\Definitions\FactoryDefinition;
-use Core\Container\Definitions\DefinitionInterface;
+use Core\Container\Contracts\SetterDefinition;
+use Core\Container\Contracts\FactoryDefinition;
+use Core\Container\Contracts\DefinitionInterface;
 
 class Container implements ContainerInterface
 {

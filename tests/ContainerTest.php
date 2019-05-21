@@ -5,8 +5,8 @@ use PHPUnit\Framework\TestCase;
 use Core\Container\Container;
 use Tests\Utilities\FakeSetterClass;
 use Psr\Container\ContainerInterface;
-use Psr\Container\NotFoundExceptionInterface;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Psr\Container\NotFoundExceptionInterface;
 
 class ContainerTest extends MockeryTestCase
 {
@@ -29,11 +29,11 @@ class ContainerTest extends MockeryTestCase
         $this->assertInstanceOf(ContainerInterface::class, $container);
     }
 
-    public function testDefinitionsCanBeSet()
+    public function testContractsCanBeSet()
     {
         $container = new Container;
 
-        $mock = m::mock('Core\Container\Definitions\DefinitionInterface');
+        $mock = m::mock('Core\Container\Contracts\DefinitionInterface');
 
         $container->add('classname', $mock);
 
