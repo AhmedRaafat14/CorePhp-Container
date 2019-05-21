@@ -1,6 +1,6 @@
 # Core PHP Container
 
-This is the default container used in the [Core PHP Framework](https://github.com). It is [PSR-11](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md) compatable.
+This is the default container used in the [Core PHP Framework](https://github.com/AhmedRaafat14/corephp-framework). It is [PSR-11](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md) compatable.
 
 ## Installation
 
@@ -11,6 +11,10 @@ PHP >= 7.0.0
 ### Via Composer
 
 Installation via [Composer](https://getcomposer.org/) is the recommended method of installation.
+
+```bash
+composer require learncorephp/container
+```
 
 ## Basic Usage
 

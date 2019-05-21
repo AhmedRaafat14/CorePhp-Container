@@ -1,5 +1,5 @@
 {
-  "name": "corephp/container",
+  "name": "learncorephp/container",
   "description": "The Core PHP Framework Container",
   "type": "library",
   "license": "MIT",
