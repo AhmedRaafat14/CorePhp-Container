@@ -7,6 +7,7 @@ use Tests\Utilities\FakeSetterClass;
 use Psr\Container\ContainerInterface;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Psr\Container\NotFoundExceptionInterface;
+use Core\Container\Exceptions\NotFoundException;
 
 class ContainerTest extends MockeryTestCase
 {
@@ -70,7 +71,7 @@ class ContainerTest extends MockeryTestCase
             return $name;
         });
 
-        $this->assertEquals('Bob', $container->withArguments(['Bob'])->get('classname'));
+        $this->assertEquals('Hell', $container->withArguments(['Hell'])->get('classname'));
     }
 
     public function testClassDefinitionIsSet()
@@ -95,9 +96,9 @@ class ContainerTest extends MockeryTestCase
         $container = new Container;
         $container->addClass('classname', FakeClass::class);
 
-        $test = $container->withArguments(['Bob'])->get('classname');
+        $test = $container->withArguments(['Hell'])->get('classname');
 
-        $this->assertEquals('Bob', $test->name);
+        $this->assertEquals('Hell', $test->name);
     }
 
     public function testNamespacedClassDefinitionConstructor()
@@ -105,9 +106,9 @@ class ContainerTest extends MockeryTestCase
         $container = new Container;
         $container->addClass('classname', 'Tests\Utilities\FakeClass');
 
-        $test = $container->withArguments(['Bob'])->get('classname');
+        $test = $container->withArguments(['Hell'])->get('classname');
 
-        $this->assertEquals('Bob', $test->name);
+        $this->assertEquals('Hell', $test->name);
     }
 
     public function testGetThrowsCorrectException()
@@ -123,12 +124,12 @@ class ContainerTest extends MockeryTestCase
         $container = new Container;
 
         $container->addSetter('classname', 'Tests\Utilities\FakeSetterClass', [
-            'setName' => 'Bob'
+            'setName' => 'Hell'
         ]);
 
         $test = $container->get('classname');
 
-        $this->assertEquals('Bob', $test->name);
+        $this->assertEquals('Hell', $test->name);
     }
 
     public function testSetterDefinitionExceptsMultipleMethods()
@@ -136,13 +137,13 @@ class ContainerTest extends MockeryTestCase
         $container = new Container;
 
         $container->addSetter('classname', 'Tests\Utilities\FakeSetterClass', [
-            'setName' => 'Bob',
+            'setName' => 'Hell',
             'setAge' => 42,
         ]);
 
         $test = $container->get('classname');
 
-        $this->assertEquals('Bob', $test->name);
+        $this->assertEquals('Hell', $test->name);
         $this->assertEquals(42, $test->age);
     }
 }
